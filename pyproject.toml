@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "caprentryutilities"
+name = "carpentryutilities"
 dynamic = ["version"]
 description = ''
 readme = "README.md"
@@ -27,31 +27,31 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Documentation = "https://github.com/th3-tech/caprentryutilities#readme"
-Issues = "https://github.com/th3-tech/caprentryutilities/issues"
-Source = "https://github.com/th3-tech/caprentryutilities"
+Documentation = "https://github.com/th3-tech/carpentryutilities#readme"
+Issues = "https://github.com/th3-tech/carpentryutilities/issues"
+Source = "https://github.com/th3-tech/carpentryutilities"
 
 [tool.hatch.version]
-path = "src/caprentryutilities/__about__.py"
+path = "src/carpentryutilities/__about__.py"
 
 [tool.hatch.envs.types]
 extra-dependencies = [
   "mypy>=1.0.0",
 ]
 [tool.hatch.envs.types.scripts]
-check = "mypy --install-types --non-interactive {args:src/caprentryutilities tests}"
+check = "mypy --install-types --non-interactive {args:src/carpentryutilities tests}"
 
 [tool.coverage.run]
-source_pkgs = ["caprentryutilities", "tests"]
+source_pkgs = ["carpentryutilities", "tests"]
 branch = true
 parallel = true
 omit = [
-  "src/caprentryutilities/__about__.py",
+  "src/carpentryutilities/__about__.py",
 ]
 
 [tool.coverage.paths]
-caprentryutilities = ["src/caprentryutilities", "*/caprentryutilities/src/caprentryutilities"]
-tests = ["tests", "*/caprentryutilities/tests"]
+carpentryutilities = ["src/carpentryutilities", "*/carpentryutilities/src/carpentryutilities"]
+tests = ["tests", "*/carpentryutilities/tests"]
 
 [tool.coverage.report]
 exclude_lines = [

@@ -1,4 +1,5 @@
-from src.caprentryutilities import units, parse
+import carpentryutilities as cu
+# l = cu.len
 
 def main():
     # print(units.feetToInches(12))
@@ -11,11 +12,17 @@ def main():
 
     # print(units.numToMixedNum(1.6876, 16))
 
-    assert(units.length(3, "ft") == 36) 
+    # assert(units.length(3, "ft") == 36) 
 
-    print(units.length(39.125))
-    print(units.length(''' 3' 3 1/8" '''))
-    print(units.length(''' 3.26041666667' '''))
+    # print(units.length(39.125))
+    # print(units.length(''' 3' 3 1/8" '''))
+    # print(units.length(''' 3.26041666667' '''))
+
+    cu.pitmm(cu.len(5.5125, 'ft'))
+
+
+
+
 
 if __name__ == "__main__":
     main()

@@ -20,14 +20,20 @@ def numToFrac(num, precision = 16):
 def numToMixedNum(num, precision = 16):
     decimal, whole = modf(num)
     frac = numToFrac(decimal, precision)
-    spacing = " " if (whole != 0) else ""
-    return str(int(whole)) + spacing + frac
+    if (frac == "1/1"):
+        frac = "0"
+        whole += 1
 
-def inchToMixedMeasurment(num, precision = 16):
-    feet = str(int(num // 12))
-    inches = numToMixedNum(num % 12)
-    return feet + "' " + inches + "\""
+    wholeStr = "" if (whole == 0) else str(int(whole))
+    spacing = "" if (whole == 0 or frac[0] == '0') else " "
+    fracStr = "" if (frac[0] == '0') else frac
+    return wholeStr + spacing + fracStr
 
+def inchesToMixedMeasurment(lenIn, precision = 16):
+    feet = str(int(lenIn // 12)) + "'" if (lenIn >= 12) else ""
+    inches = numToMixedNum(lenIn % 12, precision)
+    inches = "" if (inches == "") else " " + inches + "\""
+    return feet + inches
 
 # returns a length in decimal inches, for ease
 def length(len, type = "in"):
@@ -35,7 +41,7 @@ def length(len, type = "in"):
         return parse.parseLen(len)
     
     if (type == 'ft'):
-        return feetToInches(len)
+        return len * 12
     elif (type == "mm"):
         return len / 25.4
     elif (type == "cm"):
